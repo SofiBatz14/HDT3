@@ -8,7 +8,7 @@ public class Mains {
         
         int[] data = FileHandler.loadFromFile("numbers.txt"); // Carga los datos desde el archivo
         
-        // Aplicando algoritmos de ordenamiento
+        // Aplica algoritmos de ordenamiento
         SortRunner.runSorts(data);
     }
 }
