@@ -3,28 +3,28 @@ import java.util.Arrays;
 class Sorts {
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
-            int j = i - 1;
+            int key = arr[i]; // Elemento a insertar 
+            int j = i - 1; // Mover elementos mayores que la clave una posición adelante
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
-            arr[j + 1] = key;
+            arr[j + 1] = key; // Insertar la clave en la posición correcta
         }
     }
     
     public static void mergeSort(int[] arr) {
         if (arr.length < 2) return;
-        int mid = arr.length / 2;
-        int[] left = Arrays.copyOfRange(arr, 0, mid);
-        int[] right = Arrays.copyOfRange(arr, mid, arr.length);
-        mergeSort(left);
-        mergeSort(right);
-        merge(arr, left, right);
+        int mid = arr.length / 2; // Encontrar punto medio del arreglo
+        int[] left = Arrays.copyOfRange(arr, 0, mid); // Crear subarreglo izquierdo
+        int[] right = Arrays.copyOfRange(arr, mid, arr.length); // Crear subarreglo derecho
+        mergeSort(left); //Ordenar izquierdo
+        mergeSort(right); // Ordenar derecho
+        merge(arr, left, right); // Combinalos ya ordenados
     }
     
     private static void merge(int[] arr, int[] left, int[] right) {
-        int i = 0, j = 0, k = 0;
+        int i = 0, j = 0, k = 0; // Combinar elementos de izquiero y derecho en arr
         while (i < left.length && j < right.length) {
             if (left[i] <= right[j]) {
                 arr[k++] = left[i++];
@@ -45,7 +45,7 @@ class Sorts {
     }
     
     private static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
+        int pivot = arr[high]; // Seleccionar el pivote
         int i = (low - 1);
         for (int j = low; j < high; j++) {
             if (arr[j] <= pivot) {
